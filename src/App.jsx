@@ -1,11 +1,12 @@
 import {useState} from "react";
-import Counter from "./counter.jsx";
-
+import Counter from "./counter/counter.jsx";
+import Faq from "./faq/faq.jsx";
 export default function App() {
   return (
     <div className="App">
       <FlashCards />
       <Counter />
+      <Faq />
     </div>
   );
 }
