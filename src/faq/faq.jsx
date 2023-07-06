@@ -30,12 +30,20 @@ export default function Faq() {
 
 
 function Accordion({ data }) {
+  const [curOpen, setCurOpen] = useState(null)
+
   return (
     <>
   <h1 style={{borderTop: '4px solid black'}} > FAQ TOGGLE</h1>
   <div className='accordion'>
     {data.map((el, i) => (
-      <AccordionItem title={el.title} text={el.text} num={i + 1} key={i} />
+      <AccordionItem
+        curOpen={curOpen}
+        onOpen={setCurOpen}
+        title={el.title}
+        text={el.text}
+        num={i + 1}
+        key={i} />
     ))}
   </div>
     </>
@@ -43,12 +51,12 @@ function Accordion({ data }) {
 }
 
 
-function AccordionItem({num, title, text}) {
+function AccordionItem({num, title, text, curOpen, onOpen}) {
 
-  const [isOpen, setIsOpen] = useState(false)
+const isOpen = num === curOpen;
 
   function handleToggle() {
-    setIsOpen(isOpen => !isOpen);
+    onOpen(isOpen ? null : num)
   }
 
   return  <div className={`item ${isOpen ? 'open' : ''}`}

@@ -1,9 +1,12 @@
 import {useState} from "react";
 import Counter from "./counter/counter.jsx";
 import Faq from "./faq/faq.jsx";
+import Tip from "./tips/tip.jsx";
+
 export default function App() {
   return (
     <div className="App">
+      <Tip/>
       <FlashCards />
       <Counter />
       <Faq />
